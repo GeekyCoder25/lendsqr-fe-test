@@ -20,7 +20,7 @@ export const customers = [
 		text: 'savings',
 	},
 	{
-		icon: 'loanReq',
+		icon: 'loanreq',
 		text: 'loan requests',
 	},
 	{

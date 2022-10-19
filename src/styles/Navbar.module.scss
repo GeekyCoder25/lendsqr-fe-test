@@ -1,0 +1,129 @@
+.nav {
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	gap: 25%;
+	padding: 10px 50px;
+	background-color: #fff;
+	box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+	.navForm {
+		display: flex;
+
+		input {
+			border-radius: 8px 0 0 8px;
+			border: 1px solid #d3d9e5;
+			padding: 10px 10px 10px 20px;
+			outline: none;
+			width: 400px;
+		}
+		input::placeholder {
+			color: rgba(84, 95, 125, 0.6);
+		}
+		button {
+			padding: 0 20px;
+			background: #39cdcc;
+			border-radius: 0 8px 8px 0;
+			border: 1px solid #39cdcc;
+			cursor: pointer;
+		}
+	}
+
+	ul {
+		display: flex;
+		margin-left: auto;
+		gap: 30px;
+	}
+	li:first-child {
+		text-decoration: underline;
+	}
+	li {
+		display: flex;
+		align-items: center;
+		list-style: none;
+		gap: 10px;
+		i {
+			display: none;
+			margin-left: 5px;
+		}
+	}
+	.userLogo {
+		border-radius: 50%;
+	}
+}
+.sideNav {
+	background-color: #fff;
+	width: 300px;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 9;
+	padding: 110px 0 0 30px;
+	text-align: left;
+	overflow: hidden scroll;
+	box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+	p {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		color: #213f7d;
+		font-size: 1.2rem;
+	}
+	h4 {
+		margin: 40px 0;
+		color: #545f7d;
+		font-size: 1rem;
+		font-weight: normal;
+	}
+	a {
+		margin-bottom: 30px;
+		display: flex;
+		gap: 20px;
+		text-transform: capitalize;
+		font-size: 1.2rem;
+		color: #7a8cb1;
+	}
+	img {
+		object-fit: contain;
+	}
+	.navBorder {
+		width: 110%;
+		transform: translateX(-10%);
+		margin-bottom: 20px;
+	}
+}
+@media (max-width: 1200px) {
+	.nav {
+		padding: 10px 30px;
+		gap: 10%;
+		.navForm {
+			margin-left: auto;
+			input {
+				display: none !important;
+			}
+			button {
+				display: none;
+			}
+		}
+		li:not(:nth-child(3)) {
+			display: none;
+		}
+		li i {
+			font-size: 1.2rem;
+			display: block;
+		}
+	}
+	.sideNav {
+		left: -100%;
+		transition: left 0.5s ease;
+		// width: 200px;
+	}
+	.showSideNav {
+		left: 0;
+	}
+}

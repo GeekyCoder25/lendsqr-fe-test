@@ -10,6 +10,8 @@ const Dashboard = () => {
 	const [loading, setloading] = useState<any>(false);
 	const [fetchMessage, setFetchMessage] = useState<any>('');
 	const [errorLog, setErrorLog] = useState<any>(false);
+	const [userTabs] = useState<number>(1);
+	const [userTabsFinal, setuserTabsFinal] = useState<number>(0);
 	useEffect(() => {
 		setloading(true);
 		window.innerWidth <= 1200 && sethideFilter(false);
@@ -20,6 +22,7 @@ const Dashboard = () => {
 				);
 				const userData = await res.json();
 				setloading(false);
+				setuserTabsFinal(Math.floor(userData.length / 6));
 				return userData;
 			} catch (err: any) {
 				setFetchMessage(err.message);
@@ -126,19 +129,43 @@ const Dashboard = () => {
 					)}
 				</section>
 			</article>
-			<p>
-				Showing
-				<span
-					onClick={() => {
-						setFilterInitial(prev => prev + 10);
-						setFilterFinal(prev => prev + 10);
-					}}
-				>
-					{filterFinal}
-					<img src="/assets/images/switchArrow.png" alt="" />
-				</span>
-				out of {!errorLog && users.length}
-			</p>
+			<section>
+				<p>
+					Showing
+					<span
+						onClick={() => {
+							setFilterInitial(prev => prev + 10);
+							setFilterFinal(prev => prev + 10);
+						}}
+					>
+						{filterFinal}
+						<img src="/assets/images/switchArrow.png" alt="" />
+					</span>
+					out of {!errorLog && users.length}
+				</p>
+				<div>
+					<i
+						className="fas fa-chevron-left"
+						onClick={() => {
+							setFilterInitial(prev => prev - 10);
+							setFilterFinal(prev => prev - 10);
+						}}
+					></i>
+					<span>{userTabs}</span>
+					<span>{userTabs + 1}</span>
+					<span>{userTabs + 2}</span>
+					<span>...</span>
+					<span>{userTabsFinal - 1}</span>
+					<span>{userTabsFinal}</span>
+					<i
+						className="fas fa-chevron-right"
+						onClick={() => {
+							setFilterInitial(prev => prev + 10);
+							setFilterFinal(prev => prev + 10);
+						}}
+					></i>
+				</div>
+			</section>
 		</main>
 	);
 };

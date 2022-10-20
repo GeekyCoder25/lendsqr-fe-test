@@ -188,20 +188,42 @@
 			}
 		}
 	}
-	> p {
+	> section {
 		display: flex;
 		align-items: center;
-		margin-top: 30px;
-		gap: 10px;
-		cursor: pointer;
-		span {
-			background: rgba(33, 63, 125, 0.1);
-			border-radius: 4px;
-			padding: 10px;
+		justify-content: space-between;
+		p {
 			display: flex;
 			align-items: center;
-			width: fit-content;
+			margin-top: 30px;
+			gap: 10px;
+			cursor: pointer;
+			span {
+				background: rgba(33, 63, 125, 0.1);
+				border-radius: 4px;
+				padding: 10px;
+				display: flex;
+				align-items: center;
+				width: fit-content;
+				gap: 20px;
+			}
+		}
+		div {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 			gap: 20px;
+			color: #545f7d;
+
+			span:first-of-type {
+				color: #213f7d;
+			}
+			i {
+				background-color: rgba(33, 63, 125, 0.1);
+				padding: 5px 10px;
+				border-radius: 4px;
+				cursor: pointer;
+			}
 		}
 	}
 }
@@ -219,6 +241,10 @@
 		}
 		.table .fetchMessage {
 			font-size: 8vw;
+		}
+		> section {
+			gap: 30px;
+			flex-direction: column;
 		}
 	}
 }
